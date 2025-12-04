@@ -7,7 +7,7 @@ public class DatabaseConnection {
 
     public static String username = "root";
     public static String password = "yearup24";
-    public static String dataBase = "sugarcreek";
+    public static String dataBase = "CarDealership";
     public static String URL = "jdbc:mysql://localhost:3306/" + dataBase;
     //private BasicDataSource  dataSource;
 

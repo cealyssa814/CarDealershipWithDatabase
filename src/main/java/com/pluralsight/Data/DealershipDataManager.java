@@ -39,7 +39,7 @@ public class DealershipDataManager {
             int year = resultSet1.getInt("year");
             String make = resultSet1.getString("make");
             String model = resultSet1.getString("model");
-            String vehicleType = resultSet1.getString("vehicleType");
+            String vehicleType = resultSet1.getString("vehicle_type");
             String color = resultSet1.getString("color");
             int odometer = resultSet1.getInt("odometer");
             double price = resultSet1.getDouble("price");
