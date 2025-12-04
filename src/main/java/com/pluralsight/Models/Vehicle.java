@@ -1,4 +1,4 @@
-package com.pluralsight;
+package com.pluralsight.Models;
 
 public class Vehicle {
     private int vin;
@@ -10,7 +10,7 @@ public class Vehicle {
     private int odometer;
     private double price;
 
-    public Vehicle(int vin, int year, String make, String model, String vehicleType, String color, int odometer, double price) {
+    public Vehicle(int vin, int year, String make, String model, String vehicleType, String color, int odometer, double price){
         this.vin = vin;
         this.year = year;
         this.make = make;
@@ -87,15 +87,17 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "\nVehicle: " + '\n' +
-                "Make = " + make + '\n' +
-                "Model = " + model + '\n' +
-                "Year = " + year + '\n' +
-                "Color = " + color + '\n' +
-                "Price = " + price + '\n' +
-                "Mileage = " + odometer + '\n' +
-                "Type = " + vehicleType + '\n' +
-                "── ⋅ ⋅ ── ✩ ── ⋅ ⋅ ── ";
+        return "\n╭┈┈┈┈┈┈┈┈┈┈┈╮" +
+                "\n|  Vehicle  |" +
+                "\n╰┈┈┈┈┈┈┈┈┈┈┈╯ " + '\n' +
+                "Make: " + make + '\n' +
+                "Model: " + model + '\n' +
+                "Year: " + year + '\n' +
+                "Color: " + color + '\n' +
+                "Price: $" + String.format("%.2f", price) + '\n' +
+                "Mileage: " + odometer + '\n' +
+                "VIN: " + vin + '\n' +
+                "Type: " + vehicleType + '\n' +
+                "\n⊰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⊱";
     }
-
 }

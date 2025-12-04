@@ -1,4 +1,4 @@
-package com.pluralsight;
+package com.pluralsight.Models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +8,8 @@ public class Dealership {
     private String address;
     private String phone;
 
-    //Creates a list of all vehicles to reference back on
     ArrayList<Vehicle> inventory = new ArrayList<>();
 
-    //Creates dealership blueprint and sets attributes
     public Dealership (String name, String address, String phone){
         this.name = name;
         this.address = address;
@@ -30,13 +28,12 @@ public class Dealership {
         return phone;
     }
 
-    //Creates a list for each specific info to refer to
     public List<Vehicle> getVehicleByPrice(double min, double max){
-        ArrayList<Vehicle> result = new ArrayList<>();
+        List<Vehicle> result = new ArrayList<>();
 
-        for (Vehicle vehicle : inventory){
-            if (vehicle.getPrice() >= min && vehicle.getPrice() <= max){
-                result.add(vehicle);
+        for (Vehicle v : inventory){
+            if (v.getPrice() >= min && v.getPrice() <= max){
+                result.add(v);
             }
         }
         return result;
@@ -75,7 +72,8 @@ public class Dealership {
         return result;
     }
 
-    public List<Vehicle> getVehicleByMileage(int max, int min){
+    // FIXED: Changed parameter order from (max, min) to (min, max) to match the method call
+    public List<Vehicle> getVehicleByMileage(int min, int max){
         ArrayList<Vehicle> result = new ArrayList<>();
 
         for (Vehicle vehicle : inventory){
@@ -97,17 +95,14 @@ public class Dealership {
         return result;
     }
 
-    //Creates way to call every vehicle no matter the differences
     public List<Vehicle> getAllVehicles() {
         return inventory;
     }
 
-    //Creates way to add a new vehicle and save to file
     public void addVehicle(Vehicle vehicle){
         inventory.add(vehicle);
     }
 
-    //Creates way to delete a vehicle from file
     public void removeVehicle(Vehicle vehicle){
         inventory.remove(vehicle);
     }

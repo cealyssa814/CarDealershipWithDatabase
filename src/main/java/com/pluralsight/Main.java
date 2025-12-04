@@ -1,20 +1,20 @@
 package com.pluralsight;
-import com.pluralsight.UserInterface;
-import javax.sql.DataSource;
 
-// This is my new entry point that wires in JDBC.
+import com.pluralsight.UserInterface.UserInterface;
+
+import java.sql.SQLException;
+
 public class Main {
-    public static void main(String[] args) {
-        // 1. Build the shared DataSource.
-        DataSource dataSource = DataSourceFactory.getDataSource();
+    public static void main(String[] args) throws SQLException {
 
-        // 2. Create the VehicleDao that talks to the DB.
-        VehicleDao vehicleDao = new VehicleDao(dataSource);
+        //try{
+        //Basicds ds = getConnection(args);
 
-        // 3. Build UI with my DAO (and still using ConsoleHelper).
-        UserInterface ui = new UserInterface(vehicleDao);
+        //DealrshipDataManager dm = new DealershipDataManager(ds);
 
-        // 4. Start interactive menu loop.
+
+
+        UserInterface ui = new UserInterface();
         ui.display();
     }
 }

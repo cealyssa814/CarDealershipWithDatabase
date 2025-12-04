@@ -1,4 +1,4 @@
-package com.pluralsight;
+package com.pluralsight.UserInterface;
 
 import java.util.Scanner;
 
