@@ -118,4 +118,48 @@ public class VehicleDao {
 
         return results;
     }
+
+    public List<Vehicle> findByColor(String color) {
+        return null;
+    }
+    // This inserts a new vehicle row into the vehicles table.
+    public void add(Vehicle vehicle) {
+        String sql = """
+                INSERT INTO vehicles
+                    (vin, year, make, model, vehicle_type, color, odometer, price)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                """;
+
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, vehicle.getVin());
+            stmt.setInt(2, vehicle.getYear());
+            stmt.setString(3, vehicle.getMake());
+            stmt.setString(4, vehicle.getModel());
+            stmt.setString(5, vehicle.getVehicleType());
+            stmt.setString(6, vehicle.getColor());
+            stmt.setInt(7, vehicle.getOdometer());
+            stmt.setDouble(8, vehicle.getPrice());
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public boolean deleteByVin(int vin) {
+        String sql = "DELETE FROM vehicles WHERE vin = ?";
+
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, vin);
+            int rows = stmt.executeUpdate();
+            return rows > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 }
